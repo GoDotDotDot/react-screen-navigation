@@ -1,0 +1,28 @@
+{
+  "name": "react-screen-navigation",
+  "version": "1.0.0",
+  "description": "react screen navigation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/godotdotdot/react-screen-navigation.git"
+  },
+  "keywords": [
+    "react",
+    "navigation",
+    "screen",
+    "app"
+  ],
+  "author": "godotdotdot",
+  "dependencies": {
+    "classnames": "^2.2.6"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/godotdotdot/react-screen-navigation/issues"
+  },
+  "homepage": "https://github.com/godotdotdot/react-screen-navigation#readme"
+}
