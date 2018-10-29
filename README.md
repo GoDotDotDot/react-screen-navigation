@@ -30,10 +30,18 @@ class HomePage extends React.Component {
                hello
                <ReactScreenNavigationConnect
                   rsnref={ref => {
-                    // debugger // eslint-disable-line
                     this.rsnref = ref;
                   }}
-                  screens={[]}
+                  screens={[
+                    {
+                      key: 'detail',
+                      component: DetailComponent,
+                      props: {
+                        className: 'detail-page'
+                      },
+                      className: 'detail-page-wraper'
+                    }
+                  ]}
                 />
            </div>
        ) 
