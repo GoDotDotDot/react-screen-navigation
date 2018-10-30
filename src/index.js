@@ -1,4 +1,4 @@
-// eslint-disable-next-line
+/* eslint-disable */
 import React from 'react';
 import ReactDom from 'react-dom';
 import classnames from 'classnames';
@@ -6,14 +6,11 @@ import { checkStack, mergeStack } from './utils/mergeStack';
 
 import Screen from './screen';
 
-// eslint-disable-next-line
 let screenStack = [];
 
-// eslint-disable-next-line
 class ReactScreenNavigationConnect extends React.Component {
   constructor(props) {
     super(props);
-    // eslint-disable-next-line
     const { screens, container = 'screen' } = this.props;
     screenStack = mergeStack(screenStack, screens);
 
@@ -27,7 +24,7 @@ class ReactScreenNavigationConnect extends React.Component {
   }
 
   render() {
-    const { rsnref } = this.props; // eslint-disable-line
+    const { rsnref } = this.props;
     return ReactDom.createPortal(
       <ReactScreenNavigation ref={rsnref} />,
       this.dom,
@@ -40,20 +37,12 @@ class ReactScreenNavigation extends React.Component {
     screens: screenStack,
     stack: [],
   };
-  /**
-   * stack: Array
-   *  {
-   *    status: 'in' || 'out',
-   *    key: '' // 当前screen名称,
-   *  }
-   */
 
   getScreenByKey(key) {
     const { screens } = this.state;
     return screens.filter(e => e.key === key)[0];
   }
 
-  // eslint-disable-next-line
   go = (screen, params) => {
     const { screens } = this.state;
     if (!checkStack(screens, { key: screen })) {
@@ -64,7 +53,6 @@ class ReactScreenNavigation extends React.Component {
     this.setState({ stack });
   };
 
-  // eslint-disable-next-line
   back = () => {
     const { stack } = this.state;
     const { length } = stack;
