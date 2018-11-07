@@ -11,24 +11,13 @@
 }
 
 .rsn-in {
-  -webkit-animation: rsnIN 0.2s ease-in-out;
-          animation: rsnIN 0.2s ease-in-out;
+  animation: rsnIN 0.2s ease-in-out;
   left: 0;
 }
 
 .rsn-out {
-  -webkit-animation: rsnOut 0.2s ease-in-out;
-          animation: rsnOut 0.2s ease-in-out;
+  animation: rsnOut 0.2s ease-in-out;
   left: 100vw;
-}
-
-@-webkit-keyframes rsnIN {
-  from {
-    left: 100VW;
-  }
-  to {
-    left: 0;
-  }
 }
 
 @keyframes rsnIN {
@@ -37,15 +26,6 @@
   }
   to {
     left: 0;
-  }
-}
-
-@-webkit-keyframes rsnOut {
-  from {
-    left: 0;
-  }
-  to {
-    left: 100vw;
   }
 }
 

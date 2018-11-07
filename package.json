@@ -1,11 +1,11 @@
 {
   "name": "react-screen-navigation",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "react screen navigation",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:js": "babel src --out-dir lib",
+    "build:npm": "babel --copy-files src --out-dir lib",
     "build": "webpack -c webpack.config.js"
   },
   "repository": {
