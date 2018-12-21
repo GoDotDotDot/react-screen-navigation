@@ -4,6 +4,7 @@
 <a href="https://www.npmjs.com/package/react-screen-navigation"><img src="https://img.shields.io/npm/v/react-screen-navigation.svg" /></a> <a href="https://npm-stat.com/charts.html?package=react-screen-navigation"><img src="https://img.shields.io/npm/dt/react-screen-navigation.svg" /></a>
 
 
+
 1.x 版本的请查看[这里](https://github.com/GoDotDotDot/react-screen-navigation/tree/1.x)，由于当前版本 breaking change 和 1.x 不兼容。 
 
 基于React仿原生导航切换效果组件。
