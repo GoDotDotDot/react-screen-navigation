@@ -67,7 +67,7 @@ ReactDOM.render(
 
 线上体验地址：https://godotdotdot.github.io/react-screen-navigation/
 
-源码请前往 [examples](https://github.com/GoDotDotDot/react-screen-navigation/examples/create-react-app) 目录
+源码请前往 [examples](https://github.com/GoDotDotDot/react-screen-navigation/tree/master/examples/create-react-app) 目录
 
 ## API
 
