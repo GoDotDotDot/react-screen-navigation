@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Screen path="detail" component={DetailPage} />
+        <Screen path="detail" component={DetailPage} clear={false}/>
         <Screen path="weekly" component={WeeklyPage} />
         <h1>欢迎使用 ReactScreenNavigation</h1>
         <button onClick={this.goToDetailPage}>查看详情</button>

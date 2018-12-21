@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import qs from 'qs';
 
 import ScreenContext from './ScreenContext';
-import { getSearchValueByKey } from './utils/query';
 
 class ScreenProvider extends React.Component {
   static propTypes = {
-    history: PropTypes.shape.isRequired,
+    history: PropTypes.object.isRequired, // eslint-disable-line
     container: PropTypes.string,
     searchKey: PropTypes.string,
     children: PropTypes.node,

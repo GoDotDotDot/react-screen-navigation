@@ -78,7 +78,6 @@ class Screen extends React.PureComponent {
     paramsStack[path] = params;
     serachObj[searchKey] = activeScreens;
     const { keepState } = this.props;
-    // TODO: 根据用户需求来讲参数保存到URL
     history.push(`?${qs.stringify(Object.assign({}, serachObj, keepState ? params: null))}`);
     return null;
   };
@@ -112,8 +111,12 @@ class Screen extends React.PureComponent {
 
   renderRemoveScreen(ScreenComponent, props, time) {
     const cls = classnames('rsn-screen', 'rsn-out');
-    setTimeout(() => {
+    if(this.timeoutId){
+      clearTimeout(this.timeoutId);
+    }
+    this.timeoutId = setTimeout(() => {
       this.setState({ timeout: true });
+      this.timeout = true;
     }, time);
     return ReactDom.createPortal(
       <div className={cls}>
@@ -125,11 +128,12 @@ class Screen extends React.PureComponent {
 
   renderScreen(children, props) {
     const { component: ScreenComponent, clear } = this.props;
-    const { timeout, render } = this.state;
+    const { render } = this.state;
     if (children && !isEmptyChildren(children)) {
       return children;
     }
     if (props.match) {
+      this.timeout = false;
       // 需要进场
       if (ScreenComponent) {
         return this.renderPortalScreen(ScreenComponent, props);
@@ -142,10 +146,10 @@ class Screen extends React.PureComponent {
     // 需要出场
     if (this.actived) {
       // 动画时间到并且需要清除dom
-      if (timeout && clear) {
+      if (this.timeout && clear) {
         return null;
       }
-      return this.renderRemoveScreen(ScreenComponent, props, 300);
+      return this.renderRemoveScreen(ScreenComponent, props, 500);
     }
     return null;
   }
@@ -156,7 +160,6 @@ class Screen extends React.PureComponent {
         {context => {
           // eslint-disable-next-line
           let { children, path, keepState, ...others } = this.props;
-          // this.context = context;
           this.dom = context.target;
           const { activeScreens, history } = context;
           const idx = screenStack.findIndex(ele => ele.path === path);
