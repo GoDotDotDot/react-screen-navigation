@@ -1,6 +1,6 @@
 {
   "name": "react-screen-navigation",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "react screen navigation",
   "main": "lib/index.js",
   "scripts": {
@@ -21,8 +21,12 @@
   "author": "godotdotdot",
   "dependencies": {
     "classnames": "^2.2.6",
+    "hoist-non-react-statics": "^3.2.1",
+    "prop-types": "^15.6.2",
+    "qs": "^6.6.0",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "tiny-warning": "^1.0.2"
   },
   "license": "MIT",
   "bugs": {

@@ -5,7 +5,7 @@
  * @return {Boolean} 存在返回true，否则返回false
  */
 const checkStack = (orign, target) =>
-  Array.prototype.some.call(orign, ele => ele.key === target.key); // eslint-disable-line
+  Array.prototype.some.call(orign, ele => ele.path === target.path); // eslint-disable-line
 
 /**
  * 是否安全添加栈，如果存在则放回false
@@ -40,7 +40,7 @@ const mergeStack = (origin, target) => {
   // debugger // eslint-disable-line
   if (!isSafeToAddStack(origin, target)) {
     console.error('the stack is already exist!');
-    return false;
+    return origin;
   }
   if (Array.isArray(target)) {
     return Array.prototype.concat.call(origin, target);
