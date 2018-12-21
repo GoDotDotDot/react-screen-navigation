@@ -1,7 +1,7 @@
 <div align="center">
   <h1>React-Screen-Navigation</h1>
 </div>
-[![npm version](https://img.shields.io/npm/v/react-screen-navigation.svg)](https://www.npmjs.com/package/react-screen-navigation) [![npm downloads](https://img.shields.io/npm/dt/react-screen-navigation.svg)](https://npm-stat.com/charts.html?package=react-screen-navigation) 
+[![npm version](https://img.shields.io/npm/v/react-screen-navigation.svg)](https://www.npmjs.com/package/react-screen-navigation) [![npm downloads](https://img.shields.io/npm/dt/react-screen-navigation.svg)](https://npm-stat.com/charts.html?package=react-screen-navigation)
 
 1.x 版本的请查看[这里](https://github.com/GoDotDotDot/react-screen-navigation/tree/1.x)，由于当前版本 breaking change 和 1.x 不兼容。 
 
