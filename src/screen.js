@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames'; // eslint-disable-line
 import warning from 'tiny-warning'; // eslint-disable-line
-import qs from 'qs'
+import qs from 'qs';
 // eslint-disable-next-line
 import { isValidElementType } from 'react-is';
 
@@ -14,7 +14,7 @@ import ScreenContext from './ScreenContext';
 import './style.css';
 
 const screenStack = [];
-let paramsStack = {};
+const paramsStack = {};
 let detectId;
 
 function isEmptyChildren(children) {
@@ -27,7 +27,8 @@ class Screen extends React.PureComponent {
     keepState: PropTypes.bool,
     path: PropTypes.string.isRequired,
     children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-    component: (props, propName) => {// eslint-disable-line
+    component: (props, propName) => {
+      // eslint-disable-line
       if (props[propName] && !isValidElementType(props[propName])) {
         return new Error(
           "Invalid prop 'component' supplied to 'Screen': the prop is not a valid React component",
@@ -40,13 +41,13 @@ class Screen extends React.PureComponent {
     children: null,
     component: null,
     clear: true,
-    keepState: true
+    keepState: true,
   };
 
   static contextType = ScreenContext;
 
   state = {
-    timeout: false,
+    update: false,
   };
 
   params = {};
@@ -78,7 +79,7 @@ class Screen extends React.PureComponent {
     paramsStack[path] = params;
     serachObj[searchKey] = activeScreens;
     const { keepState } = this.props;
-    history.push(`?${qs.stringify(Object.assign({}, serachObj, keepState ? params: null))}`);
+    history.push(`?${qs.stringify(Object.assign({}, serachObj, keepState ? params : null))}`);
     return null;
   };
 
@@ -111,13 +112,17 @@ class Screen extends React.PureComponent {
 
   renderRemoveScreen(ScreenComponent, props, time) {
     const cls = classnames('rsn-screen', 'rsn-out');
-    if(this.timeoutId){
-      clearTimeout(this.timeoutId);
+    if (props.clear) {
+      if (this.timeoutId) {
+        clearTimeout(this.timeoutId);
+      }
+      this.timeoutId = setTimeout(() => {
+        if (!this.timeout) {
+          this.timeout = true;
+          this.forceUpdate();
+        }
+      }, time);
     }
-    this.timeoutId = setTimeout(() => {
-      this.setState({ timeout: true });
-      this.timeout = true;
-    }, time);
     return ReactDom.createPortal(
       <div className={cls}>
         <ScreenComponent {...props} />
@@ -157,14 +162,15 @@ class Screen extends React.PureComponent {
   render() {
     return (
       <ScreenContext.Consumer>
-        {context => {
+        {(context) => {
           // eslint-disable-next-line
           let { children, path, keepState, ...others } = this.props;
           this.dom = context.target;
           const { activeScreens, history } = context;
           const idx = screenStack.findIndex(ele => ele.path === path);
           // eslint-disable-next-line
-          const match = idx !== undefined ? Boolean(parseInt(activeScreens) & Math.pow(2, idx)) : false;
+          const match =
+            idx !== undefined ? Boolean(parseInt(activeScreens) & Math.pow(2, idx)) : false;
 
           if (Array.isArray(children) && children.length === 0) {
             children = null;
@@ -175,7 +181,10 @@ class Screen extends React.PureComponent {
             ...context,
             go: this.go,
             back: this.back,
-            params: paramsStack[path] || keepState ? qs.parse(history.location.search, { ignoreQueryPrefix: true }) : {},
+            params:
+              paramsStack[path] || keepState
+                ? qs.parse(history.location.search, { ignoreQueryPrefix: true })
+                : {},
           };
           if (typeof children === 'function') {
             children = children(props);
