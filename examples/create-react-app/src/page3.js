@@ -1,17 +1,20 @@
 import React, { PureComponent } from 'react';
 import { withScreen } from 'react-screen-navigation';
-class WeeklyPage extends PureComponent {
+import { bindCallback } from 'rxjs';
+
+class Page3 extends PureComponent {
   render() {
-    const { go } = this.props;
+    const { go, back } = this.props;
     return (
       <div className="App">
         <h1>
-          页面二
+          页面三
         </h1>
         <button onClick={() => { go('page3') }}>页面三</button>
+        <button onClick={() => { back() }}>返回</button>
       </div>
     );
   }
 }
 
-export default withScreen(WeeklyPage);
+export default withScreen(Page3);

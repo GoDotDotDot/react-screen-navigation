@@ -72,7 +72,7 @@ class Screen extends React.PureComponent {
     const { history, searchKey } = this.context;
 
     const { search } = history.location;
-    const serachObj = qs.parse(search);
+    const serachObj = qs.parse(search, { ignoreQueryPrefix: true });
     const lastActivedScreens = serachObj[searchKey] || 0;
     const idx = screenStack.findIndex(ele => ele.path === path);
     const activeScreens = lastActivedScreens | Math.pow(2, idx); // eslint-disable-line
@@ -83,9 +83,9 @@ class Screen extends React.PureComponent {
     return null;
   };
 
-  back = (n = 1) => {
-    const { history } = this.props;
-    history.back(n);
+  back = (n = -1) => {
+    const { history } = this.context;
+    history.go(n);
   };
 
   /* eslint-disable */
