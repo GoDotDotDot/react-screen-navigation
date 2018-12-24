@@ -182,9 +182,9 @@ class Screen extends React.PureComponent {
             go: this.go,
             back: this.back,
             params:
-              paramsStack[path] || keepState
+              (paramsStack[path]) || (keepState
                 ? qs.parse(history.location.search, { ignoreQueryPrefix: true })
-                : {},
+                : {}),
           };
           if (typeof children === 'function') {
             children = children(props);
