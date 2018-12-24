@@ -14,7 +14,7 @@ function withScreen(Component) {
     return (
       <Screen>
         {childProps => (
-          <Component {...others} {...childProps} ref={wrappedComponentRef} />
+          <Component {...childProps} {...others} ref={wrappedComponentRef} />
         )}
       </Screen>
     );
