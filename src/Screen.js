@@ -78,8 +78,8 @@ class Screen extends React.PureComponent {
     const activeScreens = lastActivedScreens | Math.pow(2, idx); // eslint-disable-line
     paramsStack[path] = params;
     serachObj[searchKey] = activeScreens;
-    const { keepState } = this.props;
-    history.push(`?${qs.stringify(Object.assign({}, serachObj, keepState ? params : null))}`);
+    const { keepState, path: originPath } = this.props; // 只允许调用 Screen 组件下的 go 方法才保留参数
+    history.push(`?${qs.stringify(Object.assign({}, serachObj, keepState && (path === originPath) ? params : null))}`);
     return null;
   };
 

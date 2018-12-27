@@ -22,7 +22,7 @@ class App extends Component {
         <Screen path="detail" component={DetailPage} clear={false}/>
         <Screen path="weekly" component={WeeklyPage} />
         <Screen path="page3" component={Page3} />
-        <h1>欢迎使用 <a href="https://github.com/godotdotdot/react-screen-navigation">react-screen-navigation</a></h1>
+        <h1>欢迎使用 <a href="https://www.npmjs.com/package/react-screen-navigation">react-screen-navigation</a></h1>
         <button onClick={this.goToDetailPage}>页面一（带参数）</button>
         <button onClick={this.goToWeeklyPage}>页面二</button>
       </div>
