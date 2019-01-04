@@ -1,3 +1,4 @@
+
 .rsn-screen {
   position: fixed;
   top: 0;
@@ -6,34 +7,32 @@
   overflow-x: hidden;  
   width: 100vw;
   min-height: 100vh;
-  /* transition: left 0.4s ease-in-out; */
   background: #eeeeee;
-}
-
-.rsn-in {
-  animation: rsnIN 0.2s ease-in-out;
-  left: 0;
-}
-
-.rsn-out {
-  animation: rsnOut 0.2s ease-in-out;
   left: 100vw;
 }
 
-@keyframes rsnIN {
+.rsn-in {
+  animation: slideInLeft 0.3s ease-in-out forwards;
+}
+
+.rsn-out {
+  animation: slideOutRight 0.3s ease-in-out forwards;
+}
+
+@keyframes slideInLeft {
   from {
-    left: 100VW;
+    transform: translateX(0);
   }
   to {
-    left: 0;
+    transform: translateX(-100vw);
   }
 }
 
-@keyframes rsnOut {
+@keyframes slideOutRight {
   from {
-    left: 0;
+    transform: translateX(-100vw);
   }
   to {
-    left: 100vw;
+    transform: translateX(0);
   }
 }
