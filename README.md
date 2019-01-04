@@ -111,9 +111,9 @@ Screen 组件会暴露一些 api 给 component 组件。目前暴露的有
 
 
 
-### withRouter
+### withScreen
 
-和 react-router 的 withRouter 类似，它是一个高阶组件，使用 withRouter 可以获得 Screen 下面暴露的一些方法，例如 go 和 back 方法。
+和 react-router 的 withRouter 类似，它是一个高阶组件，使用 withScreen 可以获得 Screen 下面暴露的一些方法，例如 go 和 back 方法。
 
 ### go(path, params)
 
